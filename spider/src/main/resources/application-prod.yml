@@ -1,0 +1,33 @@
+server:
+  port: 8098
+
+spring:
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure #过滤druid自动配置
+  datasource:
+    username: msn_db
+    password: Hellokitty666
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://60.205.180.202:3306/msn_db?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+
+
+redi:
+  useCaptcha: 0
+  usePhone: 1
+  useEmail: 1
+  useAccount: 1
+  idNo: 1
+  pwd:
+    useSalt: 1
+    salt: REDI_OA
+  rememberMeCookie:
+    maxAge: 86400
+  default:
+    init:
+      password: 123456
+  file:
+    save:
+      path: E:/mini_files/
+  user:
+    default-coin: 50
+
