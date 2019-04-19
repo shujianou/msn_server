@@ -1,0 +1,12 @@
+${AnsiColor.BRIGHT_YELLOW}
+
+  __  __  _____ _   _
+ |  \/  |/ ____| \ | |
+ | \  / | (___ |  \| |
+ | |\/| |\___ \| . ` |
+ | |  | |____) | |\  |
+ |_|  |_|_____/|_| \_|
+
+
+  ${AnsiColor.BLUE}
+ :: Spring Boot ::        (${spring-boot.version})

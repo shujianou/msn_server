@@ -103,6 +103,30 @@ public class ShiroFormFilter extends FormAuthenticationFilter {
         return subject.isAuthenticated();
     }
 
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        if (isLoginRequest(request, response)) {
+            if (isLoginSubmission(request, response)) {
+                if (log.isTraceEnabled()) {
+                    log.trace("Login submission detected.  Attempting to execute login.");
+                }
+                return executeLogin(request, response);
+            } else {
+                if (log.isTraceEnabled()) {
+                    log.trace("Login page view.");
+                }
+                //allow them to see the login page ;)
+                return true;
+            }
+        }
+        if (log.isTraceEnabled()) {
+            log.trace("Attempting to access a path which requires authentication.  Forwarding to the " +
+                    "Authentication url [" + getLoginUrl() + "]");
+        }
+        redirectToLogin(request, response);
+        return false;
+    }
+
 
     private UserCheckDao userCheckDao;
 }
